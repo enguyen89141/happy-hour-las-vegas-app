@@ -1,0 +1,6 @@
+.Header {
+  height: 60px;
+  display: flex;
+  align-items: normal;
+  justify-content: space-between;
+}

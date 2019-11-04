@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "alias": "erics-happy-hour-las-vegas-app",
+  "name": "happy-hour-las-vegas-app",
+  "routes": [
+      {
+        "src": "^/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": ".*",
+        "dest": "/index.html"
+      }
+  ]
+}
