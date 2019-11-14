@@ -7,11 +7,31 @@ import SignUpPage from '../../routes/SignUpPage/SignUpPage'
 import HappyHourPage from '../../routes/HappyHourPage/HappyHourPage'
 import HappyHourDetails from '../../routes/HappyHourDetails/HappyHourDetails'
 import AddDeal from '../../routes/AddDeal/AddDeal'
+import ApiContext from '../../ApiContext'
+import { API_BASE_URL } from '../../config'
 
 
 export default class App extends Component {
   state = {
-    hasError: false
+    hasError: false,
+    deals: []
+  }
+
+  componentDidMount() {
+    fetch(API_BASE_URL + '/deals')
+      .then(deals => {
+        if(!deals.ok) {
+          console.log('Error during retrieval of deals')
+          throw new Error('There was an issue obtaining happy hour deals from the server')
+        }
+        return deals;
+      })
+      .then(deals => deals.json())
+      .then(deals => {
+        this.setState({
+          deals: deals
+        })
+      })
   }
   // catches JS errors in child component tree, logs errors, and changes error state
   static getDerivedStateFromError(error) {
@@ -19,8 +39,12 @@ export default class App extends Component {
     return { hasError: true }
   }
   render() {
+    const value = {
+      deals: this.state.deals
+    }
     return (
-      <div className="App">
+      <ApiContext.Provider value={value}>
+        <div className="App">
         <header className="App_header">
           <Header />
         </header>
@@ -49,7 +73,7 @@ export default class App extends Component {
             />
             <Route
               exact
-              path={"/happyhourdetails"}
+              path={"/api/deals/:dealId"}
               component={HappyHourDetails}
             />
             <Route
@@ -60,6 +84,7 @@ export default class App extends Component {
           </Switch>
         </main>
       </div>
+      </ApiContext.Provider>
     )
   }
 }
