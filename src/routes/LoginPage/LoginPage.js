@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import LoginForm from '../../components/LoginForm/LoginForm'
 
-export default class GuestPage extends Component {
+export default class LoginPage extends Component {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  }
+
+  handleLoginSuccess = () => {
+    const { location, history } = this.props
+    const destination = (location.state || {}).from || '/'
+    history.push(destination)
+  }
+
   render() {
     return (
       <div>
-        <h2>Username: </h2>
-        <input />
-        <h2>Password: </h2>
-        <input />
-        <Link to="/happyhourdetails">
-          <button>
-            Log In.
-          </button>
-        </Link>
-        <Link to="/admin">
-          <button>
-            Log In As Admin
-            </button>
-        </Link>
+        <h2>Login</h2>
+        <LoginForm
+          onLoginSuccess={this.handleLoginSuccess}
+        />
       </div>
     )
   }

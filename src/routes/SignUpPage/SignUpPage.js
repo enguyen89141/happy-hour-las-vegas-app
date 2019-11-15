@@ -1,27 +1,25 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import SignUpForm from '../../components/SignUpForm/SignUpForm'
 
-export default class SignUpPage extends Component {
+export default class RegistrationPage extends Component {
+  static defaultProps = {
+    history: {
+      push: () => {},
+    },
+  }
+
+  handleSignUpSuccess = user => {
+    const { history } = this.props
+    history.push('/login')
+  }
+
   render() {
     return (
       <div>
-        <h2>Full Name: <input /></h2>
-        <h2>Email: <input /></h2>
-        <h2>Password: <input /></h2>
-
-        <section>
-          <button>
-            <Link to="/happyhourdetails">
-              Sign Up
-            </Link>
-          </button>
-          <p>or continue as a</p>
-          <button>
-            <Link to="/happyhour">
-              Guest
-          </Link>
-          </button>
-        </section>
+        <h2>Register</h2>
+        <SignUpForm
+          onSignUpSuccess={this.handleSignUpSuccess}
+        />
       </div>
     )
   }
