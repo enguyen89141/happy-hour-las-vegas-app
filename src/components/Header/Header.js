@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import TokenService from '../../services/token-service'
 
 export default class Header extends Component {
@@ -26,17 +26,24 @@ export default class Header extends Component {
           to='/login'>
           Login
           </Link>
-          </p>
+        </p>
         <p>
-        <Link
-          to='/signup'>
-          Sign Up!
+          <Link
+            to='/signup'>
+            Sign Up!
             </Link>
         </p>
       </div>
     )
   }
   render() {
+    const AuthButton = withRouter(({ history }) => (
+      TokenService.hasAuthToken() ?
+        <p>
+          Welcome! {this.renderLogoutLink()}
+        </p>
+        : <p> {this.renderLoginLink()} </p>
+    ))
     return (
       <nav>
         <h1>
@@ -44,9 +51,7 @@ export default class Header extends Component {
             Happy Hour Las Vegas
           </Link>
         </h1>
-        {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
+        <AuthButton />
       </nav>
     )
   }
