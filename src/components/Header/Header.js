@@ -37,7 +37,7 @@ export default class Header extends Component {
     )
   }
   render() {
-    const AuthButton = withRouter(({ history }) => (
+    const AuthButton = withRouter(() => (
       TokenService.hasAuthToken() ?
         <p>
           Welcome! {this.renderLogoutLink()}

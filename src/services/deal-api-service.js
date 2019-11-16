@@ -25,6 +25,17 @@ const DealApiService = {
           : res.json()
       )
   },
+  getDealComments(dealId) {
+    return fetch(`${config.API_BASE_URL}/deals/${dealId}/comments`, {
+      headers: {
+      },
+    })
+    .then(res => 
+      (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+        )
+  },
   postUser(user) {
     return fetch(`${config.API_BASE_URL}/users`, {
       method: 'POST',

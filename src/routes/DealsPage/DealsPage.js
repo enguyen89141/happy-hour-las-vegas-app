@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DealContext, { nullDeal } from '../../contexts/DealContext'
 import DealApiService from '../../services/deal-api-service'
+import CommentForm from '../../components/CommentForm/CommentForm'
 
 export default class DealsPage extends Component {
   static defaultProps = {
@@ -15,6 +16,10 @@ export default class DealsPage extends Component {
     DealApiService.getDeal(dealId)
       .then(this.context.setDeal)
       .catch(this.context.setError)
+    DealApiService.getDealComments(dealId)
+      .then(this.context.setComments)
+      .catch(this.context.setError)
+
   }
 
   componentWillUnmount() {
@@ -24,16 +29,28 @@ export default class DealsPage extends Component {
   renderDeal() {
     const { deal } = this.context
     return <>
-      <h2><a href={deal.url} target="_blank">{deal.name}</a></h2>
+      <h2><a href={deal.url} rel="noopener norefferrer" target="_blank">{deal.name}</a></h2>
       <p>{deal.description}</p>
       <p>Address: {deal.address}</p>
       <p>Happy hours: {deal.happy_hour_days} from {deal.happy_hour_start} to {deal.happy_hour_end}</p>
       {deal.reverse_happy_hour_start ?
         <p>Reverse happy hour from {deal.reverse_happy_hour_start} to {deal.reverse_happy_hour_end}</p>
-        : <p>No reverse happy hour specials</p> }
+        : <p>No reverse happy hour specials</p>}
+      <CommentForm />
     </>
   }
 
+  renderComments() {
+    const { comments = [] } = this.context
+    return <>
+      <h3>What people are saying about this place!</h3>
+      {comments.map(comment =>
+        <p>
+          {comment.text}
+        </p>
+      )}
+    </>
+  }
   render() {
     const { error } = this.context
     let content
@@ -47,6 +64,7 @@ export default class DealsPage extends Component {
     return (
       <div>
         {content}
+        {this.renderComments()}
       </div>
     )
   }

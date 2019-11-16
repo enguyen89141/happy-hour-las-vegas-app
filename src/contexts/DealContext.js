@@ -5,13 +5,13 @@ export const nullDeal = {}
 const DealContext = React.createContext({
   deal: nullDeal,
   comments: [],
-  error:null,
-  setError: () => {},
+  error: null,
+  setError: () => { },
   clearError: () => { },
-  setDeal: () => {},
-  clearDeal: () => {},
-  setComments: () => {},
-  addComment: () => {},
+  setDeal: () => { },
+  clearDeal: () => { },
+  setComments: () => { },
+  addComment: () => { },
 })
 
 export default DealContext
