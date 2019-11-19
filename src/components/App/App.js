@@ -15,6 +15,9 @@ export default class App extends Component {
     console.error(error)
     return { hasError: true }
   }
+  componentWillMount() {
+    document.title = "Happy Hour Las Vegas"
+  }
 
   render() {
     return (

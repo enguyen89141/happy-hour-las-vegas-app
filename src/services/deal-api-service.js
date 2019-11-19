@@ -16,7 +16,7 @@ const DealApiService = {
   getDeal(dealId) {
     return fetch(`${config.API_BASE_URL}/deals/${dealId}`, {
       headers: {
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
       .then(res =>
@@ -55,7 +55,7 @@ const DealApiService = {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
-        'authorization': `basic ${TokenService.getAuthToken()}`,
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
       body: JSON.stringify({
         deal_id: dealId,
