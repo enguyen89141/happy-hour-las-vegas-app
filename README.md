@@ -1,3 +1,17 @@
+## [Happy Hour Las Vegas](https://happy-hour-las-vegas-app.enguyen89141.now.sh/)
+
+* This app connects to my [Happy Hour API](https://github.com/enguyen89141/happy-hour-las-vegas-api) which includes more documentation
+### Summary
+* This app gives users the ability to see different Las Vegas restaurant/bar locations that offer happy hour specials. 
+* Users can simply view the list of names or if they wish can sign up/login and view the details of each location
+
+## Technology Used
+* This app utilizes HTML/CSS, ReactJS, Node.js, Express, PostgreSQL, as well as JWT authentication. 
+
+### Screenshots
+1. Welcome page <br>
+<img src="./src/screenshots/landingPage.png" alt="landing page">
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
