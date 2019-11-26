@@ -14,7 +14,7 @@ export default class Header extends Component {
       <div className="Header_logged_in">
         <Link
           onClick={this.handleLogoutClick}
-          to='/'>
+          to='/home'>
           Logout
           </Link>
       </div>
@@ -51,7 +51,7 @@ export default class Header extends Component {
     return (
       <nav className="Header">
         <h1>
-          <Link to='/'>
+          <Link to='/home'>
             <FontAwesomeIcon color='#722f37' icon='cocktail' pulse />
             Happy Hour Las Vegas
           </Link>
