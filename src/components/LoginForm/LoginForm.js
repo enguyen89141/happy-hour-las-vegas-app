@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './LoginForm.css'
 
 export default class LoginForm extends Component {
   static defaultProps = {
@@ -33,7 +35,7 @@ export default class LoginForm extends Component {
   render() {
     const { error } = this.state
     return (
-      <form
+      <form className='LoginForm'
         onSubmit={this.handleSubmitJwtAuth}
       >
         <div role='alert'>
@@ -61,6 +63,7 @@ export default class LoginForm extends Component {
           </input>
         </div>
         <button type='submit'>
+          <FontAwesomeIcon icon='sign-in-alt' />
           Login
         </button>
       </form>

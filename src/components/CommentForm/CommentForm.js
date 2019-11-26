@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import DealContext from '../../contexts/DealContext'
-import DealApiContext from '../../services/deal-api-service'
 import DealApiService from '../../services/deal-api-service'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './CommentForm.css'
 
 export default class CommentForm extends Component {
   static contextType = DealContext
@@ -33,7 +34,9 @@ export default class CommentForm extends Component {
             placeholder='Type a comment...'>
             </textarea>
         </div>
-        <button type ='submit'>
+        <button className="commentSubmit" type ='submit'>
+          <FontAwesomeIcon color='#722f37' icon='comments' />
+          {' '}
           Add a comment!
         </button>
       </form>

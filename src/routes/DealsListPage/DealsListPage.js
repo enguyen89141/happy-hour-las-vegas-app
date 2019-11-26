@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import DealListContext from '../../contexts/DealListContext'
 import DealApiService from '../../services/deal-api-service'
 import DealListItem from '../../components/DealListItem/DealListItem'
+import './DealsListPage.css'
 
 export default class DealsListPage extends Component {
   static contextType = DealListContext
@@ -28,7 +29,7 @@ export default class DealsListPage extends Component {
   render() {
     const { error } = this.context
     return (
-      <div>
+      <div className='DealsListPage'>
         {error
           ? <p>There was an error, try again</p>
           : this.renderDeals()}

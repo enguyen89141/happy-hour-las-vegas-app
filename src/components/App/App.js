@@ -7,6 +7,8 @@ import PrivateRoute from '../Utils/PrivateRoute'
 import DealsListPage from '../../routes/DealsListPage/DealsListPage'
 import DealsPage from '../../routes/DealsPage/DealsPage'
 import SignUpPage from '../../routes/SignUpPage/SignUpPage'
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
+import './App.css'
 
 export default class App extends Component {
   state = { hasError: false }
@@ -21,7 +23,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <header>
           <Header />
         </header>
@@ -45,6 +47,9 @@ export default class App extends Component {
               path={'/deals/:dealId'}
               component={DealsPage}
             />
+            <Route
+              component={NotFoundPage}
+              />
           </Switch>
         </main>
       </div>
@@ -52,3 +57,5 @@ export default class App extends Component {
     )
   }
 }
+
+            

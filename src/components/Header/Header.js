@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import TokenService from '../../services/token-service'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import './Header.css'
 
 export default class Header extends Component {
   handleLogoutClick = () => {
@@ -9,7 +11,7 @@ export default class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div>
+      <div className="Header_logged_in">
         <Link
           onClick={this.handleLogoutClick}
           to='/'>
@@ -21,7 +23,7 @@ export default class Header extends Component {
 
   renderLoginLink() {
     return (
-      <div>
+      <div className="Header_logged_out">
         <p><Link
           to='/login'>
           Login
@@ -40,14 +42,17 @@ export default class Header extends Component {
     const AuthButton = withRouter(() => (
       TokenService.hasAuthToken() ?
         <p>
-          Welcome! {this.renderLogoutLink()}
+          {this.renderLogoutLink()}
         </p>
-        : <p> {this.renderLoginLink()} </p>
+        : <p>
+          {this.renderLoginLink()}
+        </p>
     ))
     return (
-      <nav>
+      <nav className="Header">
         <h1>
           <Link to='/'>
+            <FontAwesomeIcon color='#722f37' icon='cocktail' pulse />
             Happy Hour Las Vegas
           </Link>
         </h1>
