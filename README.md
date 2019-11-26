@@ -10,7 +10,13 @@
 
 ### Screenshots
 1. Welcome page <br>
-<img src="./src/screenshots/landingPage.png" alt="landing page">
+<img src="./src/screenshots/landingPage.png" alt="landing page"> 
+2. Login page <br>
+<img src="./src/screenshots/login.png" alt="login page"> 
+3. Deals page <br>
+<img src="./src/screenshots/deals.png" alt="deals page"> 
+4. Details page <br>
+<img src="./src/screenshots/details.png" alt="details page"> 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
