@@ -8,6 +8,7 @@ import DealsListPage from '../../routes/DealsListPage/DealsListPage'
 import DealsPage from '../../routes/DealsPage/DealsPage'
 import SignUpPage from '../../routes/SignUpPage/SignUpPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
+import LandingPage from '../../routes/LandingPage/LandingPage'
 import './App.css'
 
 export default class App extends Component {
@@ -33,6 +34,10 @@ export default class App extends Component {
             <Route
               exact
               path={'/'}
+              component={LandingPage}
+              />
+            <Route
+              path={'/home'}
               component={DealsListPage}
             />
             <PublicOnlyRoute
