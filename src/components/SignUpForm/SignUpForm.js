@@ -4,7 +4,7 @@ import './SignUpForm.css'
 
 export default class SignUpForm extends Component {
   static defaultProps = {
-    onRegistrationSuccess: () => {}
+    onRegistrationSuccess: () => { }
   }
 
   state = { error: null }
@@ -40,7 +40,7 @@ export default class SignUpForm extends Component {
         </div>
         <div className='user_name'>
           <label htmlFor='SignUpForm_user_name'>
-            User name
+            Username: 
           </label>
           <input
             name='user_name'
@@ -51,7 +51,7 @@ export default class SignUpForm extends Component {
         </div>
         <div>
           <label htmlFor='SignUpForm_password'>
-            Password
+            Password: 
           </label>
           <input
             name='password'
@@ -60,9 +60,11 @@ export default class SignUpForm extends Component {
             id='SignUpForm_password'>
           </input>
         </div>
-        <button type='submit'>
-          Register
+        <div className="button">
+          <button type='submit'>
+            Register
         </button>
+        </div>
       </form>
     )
   }

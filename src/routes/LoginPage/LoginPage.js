@@ -18,7 +18,7 @@ export default class LoginPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="login">
         <h2>Please sign in to view this content</h2>
         <LoginForm
           onLoginSuccess={this.handleLoginSuccess}

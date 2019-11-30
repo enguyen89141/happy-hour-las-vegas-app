@@ -5,9 +5,11 @@ export default class DealListItem extends Component {
   render() {
     const { deal } = this.props
     return (
-      <Link to ={`/deals/${deal.id}`}>
+      <>
+      {deal && <Link to ={`/deals/${deal.id}`}>
         {deal.name}
-      </Link>
+      </Link>}
+      </>
     )
   }
 }

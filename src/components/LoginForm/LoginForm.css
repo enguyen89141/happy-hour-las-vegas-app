@@ -3,3 +3,8 @@
 label, button {
   font-family: 'Source Code Pro';
 }
+
+.button {
+  text-align: center;
+  padding: 10px;
+}
